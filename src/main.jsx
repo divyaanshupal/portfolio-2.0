@@ -249,6 +249,21 @@ const semesters = [
       { code: 'SAI II', name: 'Academic Internship', grade: 'A', gp: 9 },
     ],
   },
+  {
+    name: 'Spring 2026',
+    sgpa: '9.21',
+    courses: [
+      { code: 'CS351', name: 'Introduction to Cryptography', grade: 'A', gp: 9 },
+      { code: 'CS306', name: 'Computer Graphics', grade: 'A', gp: 9 },
+      { code: 'CS305', name: 'Computer Networks', grade: 'O', gp: 10 },
+      { code: 'CS304', name: 'Compiler Design', grade: 'A', gp: 9 },
+      { code: 'CS313', name: 'Computer Networks LAB', grade: 'O', gp: 10 },
+      { code: 'CS312', name: 'Compiler Design LAB', grade: 'O', gp: 10 },
+      { code: 'CS314', name: 'Machine Learning LAB', grade: 'O', gp: 10 },
+      { code: 'CS307', name: 'Machine Learning', grade: 'A', gp: 9 },
+      { code: 'ME306', name: 'Environmental Science and Renewable Energy', grade: 'C', gp: 7 },
+    ],
+  },
 ];
 
 function useActiveSection() {
