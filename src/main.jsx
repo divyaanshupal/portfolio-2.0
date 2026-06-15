@@ -346,8 +346,8 @@ function Sidebar({ theme, onToggleTheme }) {
         </div>
 
         <div className="socials" aria-label="Social links">
-          <a href="https://github.com/divyaanshu" aria-label="GitHub"><Github size={16} /></a>
-          <a href="https://linkedin.com/in/divyanshu" aria-label="LinkedIn"><Linkedin size={16} /></a>
+          <a href="https://github.com/divyaanshupal" aria-label="GitHub"><Github size={16} /></a>
+          <a href="https://www.linkedin.com/in/divyaanshu/" aria-label="LinkedIn"><Linkedin size={16} /></a>
           <a href="mailto:divyanshuwork03@gmail.com" aria-label="Email"><Mail size={16} /></a>
           <a className="resume" href="https://drive.google.com/drive/u/1/folders/1fAS4bwaludepH5XEd2i0J5VKtZUnnsFW" target="_blank" rel="noopener noreferrer"><BriefcaseBusiness size={14} /> resume</a>
         </div>
@@ -676,8 +676,8 @@ function Contact() {
       <div className="contact-links">
         <a href="mailto:divyanshuwork03@gmail.com"><Mail size={13} /> email</a>
         <a href="tel:+916387811379"><Phone size={13} /> phone</a>
-        <a href="https://github.com/divyaanshu"><Github size={13} /> github</a>
-        <a href="https://linkedin.com/in/divyanshu"><Linkedin size={13} /> linkedin</a>
+        <a href="https://github.com/divyaanshupal"><Github size={13} /> github</a>
+        <a href="https://www.linkedin.com/in/divyaanshu/"><Linkedin size={13} /> linkedin</a>
       </div>
       <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSent(true); }}>
         <h3>SEND A MESSAGE</h3>
