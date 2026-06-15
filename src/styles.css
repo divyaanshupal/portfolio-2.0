@@ -964,11 +964,10 @@ footer span {
 
 @media (max-width: 820px) {
   .sidebar {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     min-height: 0;
-    padding: 24px 22px 17px;
+    padding: 32px 22px 24px;
     border-right: 0;
     border-bottom: 1px solid var(--line-strong);
   }
@@ -982,21 +981,34 @@ footer span {
   }
 
   .brand-line,
-  .side-bottom,
   .identity p {
     display: none;
   }
 
+  .side-bottom {
+    margin-top: 32px;
+  }
+
+  .where {
+    margin-bottom: 32px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
   .status-line {
     margin-top: 15px;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    white-space: normal;
   }
 
   .side-nav {
     display: flex;
-    overflow-x: auto;
-    gap: 24px;
-    margin-top: 22px;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 24px;
     padding-bottom: 4px;
   }
 
@@ -1014,7 +1026,7 @@ footer span {
   .page {
     margin-left: 0;
     width: 100%;
-    padding: 52px 22px 54px;
+    padding: 32px 22px 54px;
   }
 
   .section,
@@ -1167,6 +1179,7 @@ footer span {
 
 .courses-table {
   padding: 0 22px 22px;
+  overflow-x: auto;
 }
 
 .courses-table table {
@@ -1371,6 +1384,7 @@ footer span {
   justify-content: center;
   gap: 12px;
   padding: 24px;
+  min-height: 120px;
   background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 4px;

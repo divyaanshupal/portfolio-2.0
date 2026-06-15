@@ -153,27 +153,22 @@ const codingProfiles = [
   {
     name: 'LeetCode',
     link: 'https://leetcode.com/u/divyanshuwork03/',
-    icon: '📘',
   },
   {
     name: 'CodeChef',
     link: 'https://www.codechef.com/users/bright_shadow1',
-    icon: '👨‍🍳',
   },
   {
     name: 'GeeksForGeeks',
     link: 'geeksforgeeks.org/profile/divyaaanshu?tab=activity',
-    icon: '🤓',
   },
   {
     name: 'Coding Ninja',
     link: 'https://www.naukri.com/code360/profile/divyaanshu',
-    icon: '💼',
   },
   {
     name: 'Codeforces',
     link: 'https://codeforces.com/profile/divyaaanshu',
-    icon: '⚡',
   },
 ];
 
@@ -628,7 +623,7 @@ function Challenge() {
               rel="noopener noreferrer"
               className="problems-count"
             >
-              753
+              759
             </a>
           </div>
           <p className="problems-description">
@@ -647,7 +642,6 @@ function Challenge() {
                 rel="noopener noreferrer"
                 className="profile-card"
               >
-                <span className="profile-icon">{profile.icon}</span>
                 <span className="profile-name">{profile.name}</span>
                 <span className="profile-arrow">→</span>
               </a>
