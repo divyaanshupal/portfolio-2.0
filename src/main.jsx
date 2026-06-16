@@ -147,12 +147,16 @@ const hackathons = [
 
 const leaderboard = [
   ['LeetCode', '520+', 'problems'],
-  ['Total solved', '753', 'problems'],
+  ['Total solved', <CodolioStats />, 'problems'],
   ['CodeChef', '1602', 'rating'],
   ['Codechef Starters 193', '73', 'global'],
 ];
 
 const codingProfiles = [
+  {
+    name: 'Codolio',
+    link: 'https://codolio.com/profile/divyaanshu',
+  },
   {
     name: 'LeetCode',
     link: 'https://leetcode.com/u/divyanshuwork03/',
@@ -163,16 +167,16 @@ const codingProfiles = [
   },
   {
     name: 'GeeksForGeeks',
-    link: 'geeksforgeeks.org/profile/divyaaanshu?tab=activity',
+    link: 'https://www.geeksforgeeks.org/profile/divyaaanshu',
   },
   {
     name: 'Coding Ninja',
     link: 'https://www.naukri.com/code360/profile/divyaanshu',
   },
-  {
-    name: 'Codeforces',
-    link: 'https://codeforces.com/profile/divyaaanshu',
-  },
+  // {
+  //   name: 'Codeforces',
+  //   link: 'https://codeforces.com/profile/divyaaanshu',
+  // },
 ];
 
 const semesters = [
@@ -357,7 +361,7 @@ function Sidebar({ theme, onToggleTheme }) {
 
         <div className="controls">
           <button type="button" aria-label="Search"><Search size={14} /><span>⌘K</span></button>
-          <button type="button" aria-label="Music"><Volume2 size={14} /><span>music</span></button>
+          <button type="button" aria-label="Interview" onClick={() => window.open('https://www.linkedin.com/posts/divyaanshu_digitaleducation-unnatiwelfaresociety-educationforall-activity-7239701916698468352-G3Qt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbWEZ0BL0zA_E3jbmOrIwgFJjFYr4EtDDM', '_blank')}><Volume2 size={14} /><span>interview</span></button>
           <button
             className="theme-toggle"
             type="button"
@@ -605,11 +609,18 @@ function Beyond() {
     <section id="beyond" className="section beyond-section">
       <Header number="05" title="BEYOND" />
       <div className="beyond-grid">
-        <article>
-          <Users size={18} />
-          <h3>Unnati Society</h3>
-          <p>Initiator and Vice President of a 130+ member student body delivering digital education to 1500+ underprivileged students, with coverage across 5+ media platforms.</p>
-        </article>
+        <a
+          href="https://www.linkedin.com/posts/divyaanshu_digitaleducation-unnatiwelfaresociety-educationforall-activity-7239701916698468352-G3Qt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbWEZ0BL0zA_E3jbmOrIwgFJjFYr4EtDDM"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <article>
+            <Users size={18} />
+            <h3>Unnati Society</h3>
+            <p>Initiator and Vice President of a 130+ member student body delivering digital education to 1500+ underprivileged students, with coverage across 5+ media platforms.</p>
+          </article>
+        </a>
         <article>
           <Code2 size={18} />
           <h3>Development Club</h3>
@@ -618,6 +629,61 @@ function Beyond() {
       </div>
     </section>
   );
+}
+
+function CodolioStats() {
+  const [totalSolved, setTotalSolved] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const directUrl = 'https://api.codolio.com/profile?userKey=divyaanshu';
+      try {
+        setLoading(true);
+        let data;
+        try {
+          const directRes = await fetch(directUrl);
+          if (directRes.ok) {
+            data = await directRes.json();
+          } else {
+            throw new Error('Direct fetch failed');
+          }
+        } catch (directErr) {
+          const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`;
+          const proxyRes = await fetch(proxyUrl);
+          if (!proxyRes.ok) throw new Error('Network response was not ok');
+          const wrapperData = await proxyRes.json();
+          data = JSON.parse(wrapperData.contents);
+        }
+
+        const platforms = data?.data?.platformProfiles?.platformProfiles || [];
+        let sum = 0;
+        
+        platforms.forEach(platform => {
+          if (platform.totalQuestionStats && platform.totalQuestionStats.totalQuestionCounts) {
+            sum += platform.totalQuestionStats.totalQuestionCounts;
+          }
+        });
+
+        setTotalSolved(sum);
+        setError(false);
+      } catch (err) {
+        console.error('Error fetching Codolio live stats:', err);
+        setError(true);
+        setTotalSolved(762); // Fallback if network fails
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  if (loading) return <span>Loading...</span>;
+  if (error) return <span>{totalSolved}</span>;
+
+  return <span>{totalSolved}</span>;
 }
 
 function Challenge() {
@@ -634,7 +700,7 @@ function Challenge() {
               rel="noopener noreferrer"
               className="problems-count"
             >
-              759
+              <CodolioStats />
             </a>
           </div>
           <p className="problems-description">
