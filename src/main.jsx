@@ -86,16 +86,19 @@ const projects = [
     title: 'Unnati Siksha: EdTech Platform',
     body: 'Full-stack mobile platform enabling underprivileged students to access lectures, notes, and doubts with volunteer support.',
     tags: 'Flutter · Node.js · Express.js · MongoDB · JWT · Twilio · ImageKit',
+    link: 'https://github.com/App-Dev-Teams/Unnati_Records',
   },
   {
     title: 'Expense Tracker App',
     body: 'Cross-platform finance management app with auth, persistent sessions, transaction categorization, balance tracking, and analytics views.',
     tags: 'Flutter · Firebase · SQLite · Firestore · Email/Google Auth',
+    link: 'https://github.com/divyaanshupal/Jeb-Kharch-A-Expense-Tracker-App',
   },
   {
     title: 'Unified Developer Platform',
     body: 'HackQuest winning 24-hour build integrating GitHub, MS Teams, Slack, Notion, and Google Workspace into one developer workflow.',
     tags: 'HackQuest 25 · BIT Mesra · 1st / 70+ teams · Integrations',
+    link: 'https://github.com/divyaanshupal/hackquest-25',
   },
   {
     title: 'Coal Miner Safety Monitoring',
@@ -458,14 +461,22 @@ function Projects() {
       <Header number="03" title="PROJECTS" />
       <div className="project-grid">
         {projects.map((project) => (
-          <article className="project-card" key={project.title}>
-            <div>
-              <h3>{project.title}</h3>
-              <Github size={15} />
-            </div>
-            <p>{project.body}</p>
-            <span>{project.tags}</span>
-          </article>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={project.title}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <article className="project-card">
+              <div>
+                <h3>{project.title}</h3>
+                <Github size={15} />
+              </div>
+              <p>{project.body}</p>
+              <span>{project.tags}</span>
+            </article>
+          </a>
         ))}
       </div>
     </section>
